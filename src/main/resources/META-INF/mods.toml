@@ -1,0 +1,10 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+license = "MIT License"
+[[mods]]
+modId = "timewrapfiltercamera"
+version = "${file.jarVersion}"
+displayName = "Time Wrap Filter Camera"
+credits = "KUN Dev Lab"
+authors = "MORIMORI0317"
+description = '''A Ikisugi Time Wrap Filter Camera MOD'''
