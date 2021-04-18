@@ -20,11 +20,14 @@ public class RenderUtils {
         RenderSystem.assertThread(RenderSystem::isOnRenderThread);
         nativeimage.checkAllocated();
         nativeimage.format().setPackPixelStoreState();
+        System.out.println(nativeimage.pixels + ":" + nativeimage.getHeight() * nativeimage.getWidth());
         GlStateManager._getTexImage(3553, num, nativeimage.format().glFormat(), 5121, nativeimage.pixels);
+
         if (flag && nativeimage.format().hasAlpha()) {
             for (int i = 0; i < nativeimage.getHeight(); ++i) {
                 for (int j = 0; j < nativeimage.getWidth(); ++j) {
-                    nativeimage.setPixelRGBA(j, i, nativeimage.getPixelRGBA(j, i) | 255 << nativeimage.format().alphaOffset());
+                    //   int numa = nativeimage.getPixelRGBA(j, i) | 255 << nativeimage.format().alphaOffset();
+                    //   nativeimage.setPixelRGBA(j, i, numa);
                 }
             }
         }

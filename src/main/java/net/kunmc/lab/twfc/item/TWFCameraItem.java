@@ -1,6 +1,6 @@
 package net.kunmc.lab.twfc.item;
 
-import net.kunmc.lab.twfc.client.handler.RenderHandler;
+import net.kunmc.lab.twfc.client.renderer.TWFRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -28,7 +28,15 @@ public class TWFCameraItem extends Item {
             } finally {
                 nativeimage.close();
             }*/
-            RenderHandler.stoped = !RenderHandler.stoped;
+            //     RenderHandler.stoped = !RenderHandler.stoped;
+
+            if (!TWFRenderer.getInstance().isStarted()) {
+                TWFRenderer.getInstance().start();
+            } else {
+                TWFRenderer.getInstance().stop();
+            }
+
+
         }
         return ActionResult.sidedSuccess(itemstack, world.isClientSide());
     }
