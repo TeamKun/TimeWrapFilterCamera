@@ -30,7 +30,7 @@ public class RenderHandler {
         //       mc.gameRenderer.loadEffect(blackshader);
         //   }
 
-        TWFRenderer.getInstance().onRender(e);
+     //   TWFRenderer.getInstance().onRender(e);
 
        /* if (stoped) {
             ResourceLocation ls = new ResourceLocation(TimeWrapFilterCamera.MODID, "test");

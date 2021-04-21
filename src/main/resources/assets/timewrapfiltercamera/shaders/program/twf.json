@@ -2,12 +2,14 @@
   "blend": {
     "func": "add",
     "srcrgb": "one",
-    "dstrgb": "one"
+    "dstrgb": "zero"
   },
   "vertex": "timewrapfiltercamera:twf",
   "fragment": "timewrapfiltercamera:twf",
   "samplers": [
-    { "name": "depthTex" }
+    { "name": "depthTex" },
+    { "name": "DiffuseSampler" },
+    { "name": "PrevSampler" }
   ],
   "uniforms": [
     { "name": "invViewMat", "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] },

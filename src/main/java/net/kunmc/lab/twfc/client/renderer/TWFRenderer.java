@@ -65,6 +65,8 @@ public class TWFRenderer {
         invertedProjectionMatrix.invert();
         TWFShader.getInstance().setInverseProjectionMatrix(invertedProjectionMatrix);
 
+        TWFShader.getInstance().setDiffuseSampler(mc.getMainRenderTarget()::getColorTextureId);
+
         float val = 0;
 
         if (started) {

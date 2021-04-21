@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "net.kunmc.lab.twfc.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "timewrapfiltercamera.refmap.json",
+  "client": [
+    "client.RenderSystemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

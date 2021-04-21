@@ -12,6 +12,7 @@ import net.minecraftforge.resource.ISelectiveResourceReloadListener;
 import net.minecraftforge.resource.VanillaResourceType;
 
 import java.io.IOException;
+import java.util.function.IntSupplier;
 
 public class TWFShader {
     private static final TWFShader INSTANCE = new TWFShader();
@@ -84,4 +85,8 @@ public class TWFShader {
         }
     }
 
+
+    public void setDiffuseSampler(IntSupplier supplier) {
+        shaderInstance.setSampler("DiffuseSampler", supplier);
+    }
 }
