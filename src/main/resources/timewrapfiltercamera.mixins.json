@@ -4,7 +4,9 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "timewrapfiltercamera.refmap.json",
   "client": [
-    "client.RenderSystemMixin"
+    "client.GameRendererMixin",
+    "client.RenderSystemMixin",
+    "client.WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

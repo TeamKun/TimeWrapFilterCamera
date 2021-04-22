@@ -11,13 +11,12 @@ varying vec2 texCoord;
 
 
 void main() {
+    vec4 CurrTexel = texture2D(DiffuseSampler, texCoord);
 
-    if (texCoord.y>=progress){
-        vec4 PrevTexel = texture2D(PrevSampler, texCoord);
-        vec4 CurrTexel = texture2D(DiffuseSampler, texCoord);
+ //   if (texCoord.y<=progress){
 
-        gl_FragColor=CurrTexel;
-    } else {
-        gl_FragColor=vec4(0, 0, 0, 1);
-    }
+        gl_FragColor=vec4(0, CurrTexel.g, CurrTexel.b, 1);
+   // } else {
+   //     gl_FragColor=CurrTexel;
+ //   }
 }

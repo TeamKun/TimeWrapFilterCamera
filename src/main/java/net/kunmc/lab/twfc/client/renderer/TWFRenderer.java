@@ -67,6 +67,13 @@ public class TWFRenderer {
 
         TWFShader.getInstance().setDiffuseSampler(mc.getMainRenderTarget()::getColorTextureId);
 
+        TWFShader.getInstance().setProgress(1f);
+
+
+        RESET_BLEND_STATE.apply();
+
+        TWFShader.getInstance().bind();
+
         float val = 0;
 
         if (started) {
@@ -81,21 +88,15 @@ public class TWFRenderer {
             }
         }
 
-        TWFShader.getInstance().setProgress(1f - val);
-
-        RESET_BLEND_STATE.apply();
-
-        TWFShader.getInstance().bind();
-
-        blit(framebuffer);
+        blit(framebuffer, val);
 
         TWFShader.getInstance().unbind();
     }
 
 
-    private void blit(final Framebuffer framebuffer) {
+    private void blit(final Framebuffer framebuffer, float val) {
         final int width = framebuffer.width;
-        final int height = framebuffer.height;
+        final int height = (int) (framebuffer.height * (1f - val));
 
         RenderSystem.depthMask(false);
         RenderSystem.disableDepthTest();
@@ -110,8 +111,8 @@ public class TWFRenderer {
         buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
         buffer.vertex(0, height, 0).uv(0, 0).endVertex();
         buffer.vertex(width, height, 0).uv(1, 0).endVertex();
-        buffer.vertex(width, 0, 0).uv(1, 1).endVertex();
-        buffer.vertex(0, 0, 0).uv(0, 1).endVertex();
+        buffer.vertex(width, 0, 0).uv(1, (1f - val)).endVertex();
+        buffer.vertex(0, 0, 0).uv(0, (1f - val)).endVertex();
         tessellator.end();
 
         restoreMatrices();

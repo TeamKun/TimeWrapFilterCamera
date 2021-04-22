@@ -2,17 +2,18 @@ package net.kunmc.lab.twfc.client.handler;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.kunmc.lab.twfc.TimeWrapFilterCamera;
-import net.kunmc.lab.twfc.client.renderer.TWFRenderer;
 import net.kunmc.lab.twfc.client.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.AbstractGui;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class RenderHandler {
@@ -24,13 +25,23 @@ public class RenderHandler {
     private static final ResourceLocation blackshader = new ResourceLocation(TimeWrapFilterCamera.MODID, "shaders/post/test.json");
 
     @SubscribeEvent
+    public static void onOverlary(RenderGameOverlayEvent.Pre e) {
+        if (e.getType() == RenderGameOverlayEvent.ElementType.ALL) {
+            mc.getTextureManager().bind(new ResourceLocation("textures/gui/container/beacon.png"));
+            Random r = new Random();
+            RenderUtils.guiBlit(e.getMatrixStack(), r.nextInt(500), r.nextInt(500), 0, 0, 100, 100, 100, 100);
+        }
+    }
+
+
+    @SubscribeEvent
     public static void onWorldRender(RenderWorldLastEvent e) {
 
         //   if (mc.level != null && mc.gameRenderer.currentEffect() == null || !mc.gameRenderer.currentEffect().getName().equals(blackshader.toString())) {
         //       mc.gameRenderer.loadEffect(blackshader);
         //   }
 
-     //   TWFRenderer.getInstance().onRender(e);
+        //   TWFRenderer.getInstance().onRender(e);
 
        /* if (stoped) {
             ResourceLocation ls = new ResourceLocation(TimeWrapFilterCamera.MODID, "test");
