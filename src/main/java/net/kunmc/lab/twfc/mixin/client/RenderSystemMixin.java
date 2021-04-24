@@ -17,10 +17,10 @@ public class RenderSystemMixin {
             //   System.out.println(p_clear_0_);
             ci.cancel();
         }*/
-        if (ClientHandler.renderGUIed) {
-            ci.cancel();
-            ClientHandler.renderGUIed = false;
-        }
+      //  if (ClientHandler.renderGUIed) {
+      //      ci.cancel();
+     //       ClientHandler.renderGUIed = false;
+    //    }
     }
 
 }

@@ -2,6 +2,7 @@ package net.kunmc.lab.twfc.client.handler;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.kunmc.lab.twfc.TimeWrapFilterCamera;
+import net.kunmc.lab.twfc.client.renderer.TWFRenderer;
 import net.kunmc.lab.twfc.client.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.AbstractGui;
@@ -27,9 +28,13 @@ public class RenderHandler {
     @SubscribeEvent
     public static void onOverlary(RenderGameOverlayEvent.Pre e) {
         if (e.getType() == RenderGameOverlayEvent.ElementType.ALL) {
-            mc.getTextureManager().bind(new ResourceLocation("textures/gui/container/beacon.png"));
+          /*  mc.getTextureManager().bind(new ResourceLocation("textures/gui/container/beacon.png"));
             Random r = new Random();
-            RenderUtils.guiBlit(e.getMatrixStack(), r.nextInt(500), r.nextInt(500), 0, 0, 100, 100, 100, 100);
+            MatrixStack ms = e.getMatrixStack();
+            ms.pushPose();
+            ms.translate(0, 0, r.nextInt(500));
+            RenderUtils.guiBlit(ms, r.nextInt(500), r.nextInt(500), 0, 0, 100, 100, 100, 100);
+            ms.popPose();*/
         }
     }
 
@@ -41,7 +46,7 @@ public class RenderHandler {
         //       mc.gameRenderer.loadEffect(blackshader);
         //   }
 
-        //   TWFRenderer.getInstance().onRender(e);
+       // TWFRenderer.getInstance().onRender(e);
 
        /* if (stoped) {
             ResourceLocation ls = new ResourceLocation(TimeWrapFilterCamera.MODID, "test");

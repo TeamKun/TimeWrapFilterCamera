@@ -51,7 +51,7 @@ public class TWFRenderer {
         return started;
     }
 
-    private void render(Matrix4f viewMatrix, Matrix4f projectionMatrix) {
+    public void render(Matrix4f viewMatrix, Matrix4f projectionMatrix) {
 
         Framebuffer framebuffer = mc.getMainRenderTarget();
 
