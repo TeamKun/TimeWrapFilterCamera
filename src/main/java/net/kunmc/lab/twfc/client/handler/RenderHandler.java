@@ -2,7 +2,6 @@ package net.kunmc.lab.twfc.client.handler;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.kunmc.lab.twfc.TimeWrapFilterCamera;
-import net.kunmc.lab.twfc.client.renderer.TWFRenderer;
 import net.kunmc.lab.twfc.client.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.AbstractGui;
@@ -14,9 +13,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
+//汚物の残骸
 public class RenderHandler {
     private static final Minecraft mc = Minecraft.getInstance();
     public static boolean stoped;
@@ -46,7 +45,7 @@ public class RenderHandler {
         //       mc.gameRenderer.loadEffect(blackshader);
         //   }
 
-       // TWFRenderer.getInstance().onRender(e);
+        // TWFRenderer.getInstance().onRender(e);
 
        /* if (stoped) {
             ResourceLocation ls = new ResourceLocation(TimeWrapFilterCamera.MODID, "test");

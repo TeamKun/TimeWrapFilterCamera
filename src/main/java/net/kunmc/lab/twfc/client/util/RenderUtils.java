@@ -7,7 +7,6 @@ import net.minecraft.client.gui.AbstractGui;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.NativeImage;
 import net.minecraft.client.shader.Framebuffer;
-import net.minecraft.util.ResourceLocation;
 
 public class RenderUtils {
     public static DynamicTexture takeScreen(Framebuffer fb) {
@@ -29,8 +28,8 @@ public class RenderUtils {
         if (flag && nativeimage.format().hasAlpha()) {
             for (int i = 0; i < nativeimage.getHeight(); ++i) {
                 for (int j = 0; j < nativeimage.getWidth(); ++j) {
-                    //   int numa = nativeimage.getPixelRGBA(j, i) | 255 << nativeimage.format().alphaOffset();
-                    //   nativeimage.setPixelRGBA(j, i, numa);
+                    int numa = nativeimage.getPixelRGBA(j, i) | 255 << nativeimage.format().alphaOffset();
+                    nativeimage.setPixelRGBA(j, i, numa);
                 }
             }
         }
